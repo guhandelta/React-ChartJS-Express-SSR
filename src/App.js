@@ -1,24 +1,28 @@
 import React from "react";
-import "./App.css";
+import { Doughnut } from 'react-chartjs-2';
 
 function App() {
-  const [count, setCount] = React.useState(0);
-
-  const increment = () => {
-    setCount(count + 1);
-  };
-
-  const decrement = () => {
-    setCount(count - 1);
-  };
-
-  return (
-    <>
-      <p>{count}</p>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
-    </>
-  );
+  return <Doughnut
+            width = {120}
+            height = {120}
+            data={{
+              labels: [
+                'Red',
+                'Blue',
+                'Yellow'
+              ],
+              datasets: [{
+                label: 'My First Dataset',
+                data: [300, 50, 100],
+                backgroundColor: [
+                  'rgb(255, 99, 132)',
+                  'rgb(54, 162, 235)',
+                  'rgb(255, 205, 86)'
+                ],
+                hoverOffset: 4,
+              }]
+            }}
+          />
 }
 
 export default App;
